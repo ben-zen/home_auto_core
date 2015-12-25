@@ -6,15 +6,15 @@
 
 #include <stdint.h>
 
-// Note: EventType has a maximum value of 32, since there are five
+// Note: EventType has a maximum value of 31, since there are five
 // bits of space it can occupy.
 enum class EventType : uint16_t
 {
   INVALID,
-  DoorSensor,
-  WallButton,
-  MotionDetector,
-  Keypress
+  DoorSensor,     // Hall effect sensor for door open/close
+  WallButton,     // Button for locking the entryway light on or off
+  MotionDetector, // Motion detector for sensing presence/security alert
+  Keypress        // Press on the monitor module's keypad
 };
 
 class Event
