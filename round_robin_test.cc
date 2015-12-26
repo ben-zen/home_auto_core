@@ -1,3 +1,10 @@
+/* Copyright (C) 2015 Ben Lewis <benjf5+github@gmail.com>
+ * Licensed under the MIT license.
+ *
+ * Test code for the Queue class. Compile with any C++ compiler to test the
+ * Queue's functionality.
+ */
+
 #include "round_robin_queue.h"
 #include <iostream>
 

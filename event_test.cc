@@ -1,3 +1,10 @@
+/* Copyright (C) 2015 Ben Lewis <benjf5+github@gmail.com>
+ * Licensed under the MIT license.
+ *
+ * Test code for the Event class. Compile with any C++ compiler to test the
+ * Event's functionality.
+ */
+
 #include "event.h"
 #include <iostream>
 

@@ -1,4 +1,5 @@
 /* Copyright (C) 2015 Ben Lewis <benjf5+github@gmail.com>
+ * Licensed under the MIT license.
  *
  * Defines a compact event structure for use in a home automation
  * system, with a bit of type-aware optimization for space.
@@ -14,7 +15,14 @@ enum class EventType : uint16_t
   DoorSensor,     // Hall effect sensor for door open/close
   WallButton,     // Button for locking the entryway light on or off
   MotionDetector, // Motion detector for sensing presence/security alert
-  Keypress        // Press on the monitor module's keypad
+  Keypress,       // Press on the monitor module's keypad
+  TimerElapsed    // A timer has expired, the value will enumerate which one.
+};
+
+enum class TimerEvent : uint16_t
+{
+  INVALID,
+  DoorClosedTimer
 };
 
 class Event
@@ -55,6 +63,17 @@ public:
     if (properAccess)
     {
       *out = (getValue() != 0);
+    }
+    return properAccess;
+  }
+
+  bool elapsedTimer(TimerEvent *out) const
+  {
+    bool properAccess = (getType() == EventType::TimerElapsed);
+    *out = TimerEvent::INVALID;
+    if (properAccess)
+    {
+      *out = static_cast<TimerEvent>(getValue());
     }
     return properAccess;
   }

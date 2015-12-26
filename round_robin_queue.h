@@ -1,4 +1,5 @@
 /* Copyright (C) 2015 Ben Lewis <benjf5+github@gmail.com>
+ * Licensed under the MIT license.
  *
  * Defines a round-robin implementation of a Queue using simple enqueue and
  * dequeue operations, and a fixed-size queue space of stack-allocated objects.
